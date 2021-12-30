@@ -1,32 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-#include<stdio.h>
-
-int main()
+namespace zohoproject
 {
-  
-  char str[20];
-  int len;
-  
-  
-  printf("Enter a string: ");
-  scanf("%[^\n]",str);
-  
-  
-  for (len = 0; str[len]!='\0'; len++);
-
-  
-  for(int i=0; i<len; i++)
-  {
-    for(int j=0; j<len-i-1; j++)
+    class Program
     {
-      printf(" "); 
-    }
-    for(int j=0; j<=i; j++)
-    {
-      printf("%c", str[j]); 
-    }
+        static void Main(string[] args)
+        {
+            string myString = "WATER";
 
-    printf("\n"); 
-  }
-  return 0;
+
+            if (myString.Length % 2 == 0)
+            {
+                Console.WriteLine(myString.Substring((myString.Length / 2) - 1, 2));
+                Console.ReadLine();
+            }
+            else
+            {
+                char a = myString[myString.Length / 2];
+                string[] words = myString.Split(a);
+                string realign = "";
+                string r = "";
+                realign = a.ToString();
+                realign += words[1];
+                realign += words[0];
+                int s = 0;
+                string index = "";
+                int total = realign.Length;
+                for(int i = 0; i < realign.Length; i++)
+                {
+                    r = "";
+                    for (int y =0; y < total; y++)
+                    {
+                        r += " ";
+
+                    }
+                    var h = realign[s];
+                    index += h;
+                    r += index;
+                    Console.Write(r + "\n");
+                    s++;
+                    total--;
+                }                              
+                Console.ReadLine();                              
+            }
+        }
+    }
 }
